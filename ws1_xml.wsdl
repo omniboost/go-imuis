@@ -1,0 +1,1803 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://cloudswitch.imuisonline.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://cloudswitch.imuisonline.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://cloudswitch.imuisonline.com/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetiMUISVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iMUISVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetiMUISVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetiMUISVersionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="iMUISVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeepSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KeepSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KeepSessionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogoutResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStamtabelRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStamtabelRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStamtabelRecordsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdmInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdmInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAdmInfoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateJournaalpost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateJournaalpostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateJournaalpostResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateStamTabelRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Stamtabel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateStamTabelRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateStamTabelRecordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJournaalpost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJournaalpostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateJournaalpostResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteJournaalpost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteJournaalpostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteJournaalpostResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStamtabelRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStamtabelRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateStamtabelRecordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteStamtabelRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteStamtabelRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteStamtabelRecordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckConnection">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckConnectionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSpitsfactuur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionIdMWsys" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaveOrderMelding" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSpitsfactuurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateSpitsfactuurResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaveOrderMelding" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopOrderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateInkoopOrderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateGoederenontvangst">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Goederenontvangst" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ONTVANGSTNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateGoederenontvangstResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateGoederenontvangstResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Goederenontvangst" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ONTVANGSTNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTimeStamp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTimeStampResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTimeStampResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopfactuur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkoopfactuur" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="INKFACTNR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopfactuurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateInkoopfactuurResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkoopfactuur" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="INKFACTNR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkooporderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteInkooporderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateInkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateInkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderPickbon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderPickbonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkooporderPickbonResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickBonGepakt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickBonGepaktResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderPickBonGepaktResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickbonGereed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickbonGereedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderPickbonGereedResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteInkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ONDERHCTR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopContractResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ONDERHCTR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopContractResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContractRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ONDERHCTR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContractRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopContractRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ONDERHCTR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkoopContractRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkoopContractRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkoopContractRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContractRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContractRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopContractRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLaatsteBoekingPeriode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLaatsteBoekingPeriodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLaatsteBoekingPeriodeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefindQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefindQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPredefindQueryResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetiMUISVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetiMUISVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetiMUISVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetiMUISVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="KeepSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:KeepSession" />
+  </wsdl:message>
+  <wsdl:message name="KeepSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:KeepSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStamtabelRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStamtabelRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetStamtabelRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStamtabelRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAdmInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAdmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAdmInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAdmInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateJournaalpostSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateJournaalpost" />
+  </wsdl:message>
+  <wsdl:message name="CreateJournaalpostSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateJournaalpostResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateStamTabelRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateStamTabelRecord" />
+  </wsdl:message>
+  <wsdl:message name="CreateStamTabelRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateStamTabelRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJournaalpostSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateJournaalpost" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJournaalpostSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateJournaalpostResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJournaalpostSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteJournaalpost" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJournaalpostSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteJournaalpostResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStamtabelRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateStamtabelRecord" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStamtabelRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStamtabelRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteStamtabelRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteStamtabelRecord" />
+  </wsdl:message>
+  <wsdl:message name="DeleteStamtabelRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteStamtabelRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSpitsfactuurSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSpitsfactuur" />
+  </wsdl:message>
+  <wsdl:message name="CreateSpitsfactuurSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSpitsfactuurResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateInkoopOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateInkoopOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateInkoopOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateInkoopOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateGoederenontvangstSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateGoederenontvangst" />
+  </wsdl:message>
+  <wsdl:message name="CreateGoederenontvangstSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateGoederenontvangstResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeStampSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTimeStamp" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeStampSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTimeStampResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateInkoopfactuurSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateInkoopfactuur" />
+  </wsdl:message>
+  <wsdl:message name="CreateInkoopfactuurSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateInkoopfactuurResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkooporderSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVerkooporder" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkooporderSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVerkooporderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInkooporderSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteInkooporder" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInkooporderSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteInkooporderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkooporderRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkooporderRegel" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkooporderRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkooporderRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateInkooporderRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateInkooporderRegel" />
+  </wsdl:message>
+  <wsdl:message name="CreateInkooporderRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateInkooporderRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkooporderRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVerkooporderRegel" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkooporderRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVerkooporderRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInkooporderRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInkooporderRegel" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInkooporderRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInkooporderRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkooporderPickbonSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkooporderPickbon" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkooporderPickbonSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkooporderPickbonResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkooporderPickBonGepaktSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVerkooporderPickBonGepakt" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkooporderPickBonGepaktSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVerkooporderPickBonGepaktResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkooporderPickbonGereedSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVerkooporderPickbonGereed" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkooporderPickbonGereedSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVerkooporderPickbonGereedResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkooporderRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVerkooporderRegel" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkooporderRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVerkooporderRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInkooporderRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteInkooporderRegel" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInkooporderRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteInkooporderRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopContractSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopContract" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopContractSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkoopContractSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopContract" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkoopContractSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopContractRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopContractRegel" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopContractRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopContractRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkoopContractRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVerkoopContractRegel" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkoopContractRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVerkoopContractRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkoopContractRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopContractRegel" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkoopContractRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopContractRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLaatsteBoekingPeriodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLaatsteBoekingPeriode" />
+  </wsdl:message>
+  <wsdl:message name="GetLaatsteBoekingPeriodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLaatsteBoekingPeriodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPredefindQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPredefindQuery" />
+  </wsdl:message>
+  <wsdl:message name="GetPredefindQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPredefindQueryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ws1_xmlSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetiMUISVersion">
+      <wsdl:input message="tns:GetiMUISVersionSoapIn" />
+      <wsdl:output message="tns:GetiMUISVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KeepSession">
+      <wsdl:input message="tns:KeepSessionSoapIn" />
+      <wsdl:output message="tns:KeepSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStamtabelRecords">
+      <wsdl:input message="tns:GetStamtabelRecordsSoapIn" />
+      <wsdl:output message="tns:GetStamtabelRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmInfo">
+      <wsdl:input message="tns:GetAdmInfoSoapIn" />
+      <wsdl:output message="tns:GetAdmInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateJournaalpost">
+      <wsdl:input message="tns:CreateJournaalpostSoapIn" />
+      <wsdl:output message="tns:CreateJournaalpostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStamTabelRecord">
+      <wsdl:input message="tns:CreateStamTabelRecordSoapIn" />
+      <wsdl:output message="tns:CreateStamTabelRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJournaalpost">
+      <wsdl:input message="tns:UpdateJournaalpostSoapIn" />
+      <wsdl:output message="tns:UpdateJournaalpostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJournaalpost">
+      <wsdl:input message="tns:DeleteJournaalpostSoapIn" />
+      <wsdl:output message="tns:DeleteJournaalpostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStamtabelRecord">
+      <wsdl:input message="tns:UpdateStamtabelRecordSoapIn" />
+      <wsdl:output message="tns:UpdateStamtabelRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStamtabelRecord">
+      <wsdl:input message="tns:DeleteStamtabelRecordSoapIn" />
+      <wsdl:output message="tns:DeleteStamtabelRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckConnection">
+      <wsdl:input message="tns:CheckConnectionSoapIn" />
+      <wsdl:output message="tns:CheckConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSpitsfactuur">
+      <wsdl:input message="tns:CreateSpitsfactuurSoapIn" />
+      <wsdl:output message="tns:CreateSpitsfactuurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopOrder">
+      <wsdl:input message="tns:CreateVerkoopOrderSoapIn" />
+      <wsdl:output message="tns:CreateVerkoopOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkoopOrder">
+      <wsdl:input message="tns:CreateInkoopOrderSoapIn" />
+      <wsdl:output message="tns:CreateInkoopOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGoederenontvangst">
+      <wsdl:input message="tns:CreateGoederenontvangstSoapIn" />
+      <wsdl:output message="tns:CreateGoederenontvangstSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeStamp">
+      <wsdl:input message="tns:GetTimeStampSoapIn" />
+      <wsdl:output message="tns:GetTimeStampSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkoopfactuur">
+      <wsdl:input message="tns:CreateInkoopfactuurSoapIn" />
+      <wsdl:output message="tns:CreateInkoopfactuurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkooporder">
+      <wsdl:input message="tns:DeleteVerkooporderSoapIn" />
+      <wsdl:output message="tns:DeleteVerkooporderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInkooporder">
+      <wsdl:input message="tns:DeleteInkooporderSoapIn" />
+      <wsdl:output message="tns:DeleteInkooporderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkooporderRegel">
+      <wsdl:input message="tns:CreateVerkooporderRegelSoapIn" />
+      <wsdl:output message="tns:CreateVerkooporderRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkooporderRegel">
+      <wsdl:input message="tns:CreateInkooporderRegelSoapIn" />
+      <wsdl:output message="tns:CreateInkooporderRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderRegel">
+      <wsdl:input message="tns:UpdateVerkooporderRegelSoapIn" />
+      <wsdl:output message="tns:UpdateVerkooporderRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInkooporderRegel">
+      <wsdl:input message="tns:UpdateInkooporderRegelSoapIn" />
+      <wsdl:output message="tns:UpdateInkooporderRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkooporderPickbon">
+      <wsdl:input message="tns:CreateVerkooporderPickbonSoapIn" />
+      <wsdl:output message="tns:CreateVerkooporderPickbonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderPickBonGepakt">
+      <wsdl:input message="tns:UpdateVerkooporderPickBonGepaktSoapIn" />
+      <wsdl:output message="tns:UpdateVerkooporderPickBonGepaktSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderPickbonGereed">
+      <wsdl:input message="tns:UpdateVerkooporderPickbonGereedSoapIn" />
+      <wsdl:output message="tns:UpdateVerkooporderPickbonGereedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkooporderRegel">
+      <wsdl:input message="tns:DeleteVerkooporderRegelSoapIn" />
+      <wsdl:output message="tns:DeleteVerkooporderRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInkooporderRegel">
+      <wsdl:input message="tns:DeleteInkooporderRegelSoapIn" />
+      <wsdl:output message="tns:DeleteInkooporderRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContract">
+      <wsdl:input message="tns:CreateVerkoopContractSoapIn" />
+      <wsdl:output message="tns:CreateVerkoopContractSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopContract">
+      <wsdl:input message="tns:DeleteVerkoopContractSoapIn" />
+      <wsdl:output message="tns:DeleteVerkoopContractSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContractRegel">
+      <wsdl:input message="tns:CreateVerkoopContractRegelSoapIn" />
+      <wsdl:output message="tns:CreateVerkoopContractRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkoopContractRegel">
+      <wsdl:input message="tns:UpdateVerkoopContractRegelSoapIn" />
+      <wsdl:output message="tns:UpdateVerkoopContractRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopContractRegel">
+      <wsdl:input message="tns:DeleteVerkoopContractRegelSoapIn" />
+      <wsdl:output message="tns:DeleteVerkoopContractRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLaatsteBoekingPeriode">
+      <wsdl:input message="tns:GetLaatsteBoekingPeriodeSoapIn" />
+      <wsdl:output message="tns:GetLaatsteBoekingPeriodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefindQuery">
+      <wsdl:input message="tns:GetPredefindQuerySoapIn" />
+      <wsdl:output message="tns:GetPredefindQuerySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ws1_xmlSoap" type="tns:ws1_xmlSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetiMUISVersion">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetiMUISVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeepSession">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/KeepSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStamtabelRecords">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetStamtabelRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmInfo">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetAdmInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateJournaalpost">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateJournaalpost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStamTabelRecord">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateStamTabelRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJournaalpost">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateJournaalpost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJournaalpost">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteJournaalpost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStamtabelRecord">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStamtabelRecord">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckConnection">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CheckConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSpitsfactuur">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateSpitsfactuur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopOrder">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkoopOrder">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkoopOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGoederenontvangst">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateGoederenontvangst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeStamp">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetTimeStamp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkoopfactuur">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkoopfactuur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkooporder">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkooporder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInkooporder">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkooporderRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkooporderRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInkooporderRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateInkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkooporderPickbon">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkooporderPickbon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderPickBonGepakt">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderPickBonGepakt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderPickbonGereed">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderPickbonGereed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkooporderRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInkooporderRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContract">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopContract">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContractRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkoopContractRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopContractRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLaatsteBoekingPeriode">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetLaatsteBoekingPeriode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefindQuery">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetPredefindQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ws1_xmlSoap12" type="tns:ws1_xmlSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetiMUISVersion">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetiMUISVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KeepSession">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/KeepSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStamtabelRecords">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetStamtabelRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmInfo">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetAdmInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateJournaalpost">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateJournaalpost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStamTabelRecord">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateStamTabelRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJournaalpost">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateJournaalpost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJournaalpost">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteJournaalpost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStamtabelRecord">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStamtabelRecord">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckConnection">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CheckConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSpitsfactuur">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateSpitsfactuur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopOrder">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkoopOrder">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkoopOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGoederenontvangst">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateGoederenontvangst" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeStamp">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetTimeStamp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkoopfactuur">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkoopfactuur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkooporder">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkooporder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInkooporder">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkooporderRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInkooporderRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInkooporderRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateInkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkooporderPickbon">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkooporderPickbon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderPickBonGepakt">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderPickBonGepakt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkooporderPickbonGereed">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderPickbonGereed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkooporderRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInkooporderRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContract">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopContract">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopContract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContractRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkoopContractRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopContractRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLaatsteBoekingPeriode">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetLaatsteBoekingPeriode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefindQuery">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetPredefindQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws1_xml">
+    <wsdl:port name="ws1_xmlSoap" binding="tns:ws1_xmlSoap">
+      <soap:address location="https://cloudswitch.imuisonline.com/ws1_xml.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ws1_xmlSoap12" binding="tns:ws1_xmlSoap12">
+      <soap12:address location="https://cloudswitch.imuisonline.com/ws1_xml.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
