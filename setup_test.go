@@ -6,7 +6,6 @@ import (
 	"os"
 	"testing"
 
-	"github.com/fiorix/wsdl2go/soap"
 	"github.com/omniboost/go-imuis"
 )
 
@@ -25,18 +24,11 @@ func TestMain(m *testing.M) {
 		debug = true
 	}
 
+	// h.Transport = imuis.DumpTransport{RoundTripper: http.DefaultTransport}
+
 	h := http.DefaultClient
 	h.Transport = imuis.DumpTransport{RoundTripper: http.DefaultTransport}
-	cli := &soap.Client{
-		URL:         "https://cloudswitch.imuisonline.com/ws1_xml.asmx",
-		Namespace:   imuis.Namespace,
-		Config:      h,
-		ContentType: "text/xml; charset=utf-8; action=\"%s\"",
-		Envelope:    "http://www.w3.org/2003/05/soap-envelope",
-	}
-
-	client = imuis.NewWs1_xmlSoap(cli)
-
+	client = imuis.NewClient(h)
 	resp, err := client.Login(&imuis.Login{PartnerKey: &partnerKey, Omgevingscode: &omgevingsCode})
 	if err != nil {
 		log.Fatal(err)
