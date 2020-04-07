@@ -344,13 +344,13 @@ type Journaalpost struct {
 	// Aantal3, datatype: NUMERIC, lengte: 11
 	AANT3 string `xml:",omitempty"`
 	// Boekbedrag, datatype: MONEY
-	BEDRBOEK float64
+	BEDRBOEK string
 	// Valuta boekbedrag, datatype: MONEY
-	BEDRBOEKVAL float64 `xml:",omitempty"`
+	BEDRBOEKVAL string
 	// BTW-bedrag, datatype: MONEY
-	BEDRBTW float64
+	BEDRBTW string
 	// Valuta BTW-bedrag, datatype: MONEY
-	BEDRBTWVAL float64 `xml:",omitempty"`
+	BEDRBTWVAL string
 	// Betwiste factuur, datatype: BOOLEAN
 	BETWIST string `xml:",omitempty"`
 	// Optioneel: Alleen gebruiken bij debiteur/crediteur journaalpost om de factuur
