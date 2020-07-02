@@ -523,6 +523,23 @@ func (st CreateStamTabelRecordStamtabel) MarshalXML(e *xml.Encoder, start xml.St
 	}, start)
 }
 
+type UpdateStamTabelRecordMutatie struct {
+	NewDataSet UpdateStamTabelRecordNewDataSet
+}
+
+func (st UpdateStamTabelRecordMutatie) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	b, err := xml.Marshal(st.NewDataSet)
+	if err != nil {
+		return err
+	}
+
+	return e.EncodeElement(struct {
+		S string `xml:",innerxml"`
+	}{
+		S: "<![CDATA[" + string(b) + "]]>",
+	}, start)
+}
+
 type CreateStamTabelRecordNewDataSet struct {
 	METADATA CreateStamTabelRecordMetadata
 	DATA     interface{}
@@ -530,4 +547,21 @@ type CreateStamTabelRecordNewDataSet struct {
 
 type CreateStamTabelRecordMetadata struct {
 	TABLE string
+}
+
+type UpdateStamTabelRecordNewDataSet struct {
+	SELECTION Selection
+	DATA      interface{}
+}
+
+type UpdateStamTabelRecordMetadata struct {
+	TABLE string
+}
+
+type Selection struct {
+	Table          string `xml:"TABLE"`
+	SelectFields   string `xml:"SELECTFIELDS"`
+	WhereFields    string `xml:"WHEREFIELDS,omitempty"`
+	WhereOperators string `xml:"WHEREOPERATORS,omitempty"`
+	WhereValues    string `xml:"WHEREVALUES,omitempty"`
 }

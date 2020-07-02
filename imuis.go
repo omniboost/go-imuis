@@ -655,11 +655,11 @@ type UpdateJournaalpostResponse struct {
 
 // UpdateStamtabelRecord was auto-generated from WSDL.
 type UpdateStamtabelRecord struct {
-	PartnerKey    *string `xml:"PartnerKey,omitempty" json:"PartnerKey,omitempty" yaml:"PartnerKey,omitempty"`
-	Omgevingscode *string `xml:"Omgevingscode,omitempty" json:"Omgevingscode,omitempty" yaml:"Omgevingscode,omitempty"`
-	SessionId     *string `xml:"SessionId,omitempty" json:"SessionId,omitempty" yaml:"SessionId,omitempty"`
-	Mutatie       *string `xml:"Mutatie,omitempty" json:"Mutatie,omitempty" yaml:"Mutatie,omitempty"`
-	Foutmelding   *string `xml:"Foutmelding,omitempty" json:"Foutmelding,omitempty" yaml:"Foutmelding,omitempty"`
+	PartnerKey    *string                       `xml:"PartnerKey,omitempty" json:"PartnerKey,omitempty" yaml:"PartnerKey,omitempty"`
+	Omgevingscode *string                       `xml:"Omgevingscode,omitempty" json:"Omgevingscode,omitempty" yaml:"Omgevingscode,omitempty"`
+	SessionId     *string                       `xml:"SessionId,omitempty" json:"SessionId,omitempty" yaml:"SessionId,omitempty"`
+	Mutatie       *UpdateStamTabelRecordMutatie `xml:"Mutatie,omitempty" json:"Mutatie,omitempty" yaml:"Mutatie,omitempty"`
+	Foutmelding   *string                       `xml:"Foutmelding,omitempty" json:"Foutmelding,omitempty" yaml:"Foutmelding,omitempty"`
 }
 
 // UpdateStamtabelRecordResponse was auto-generated from WSDL.
