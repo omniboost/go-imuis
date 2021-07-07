@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://cloudswitch.imuisonline.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://cloudswitch.imuisonline.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://cloudswitch.imuisonline.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="https://cloudswitch.imuisonline.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="https://cloudswitch.imuisonline.com/">
+      <s:element name="GetURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_settings">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetURLResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_settings">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Login">
         <s:complexType>
           <s:sequence>
@@ -21,21 +54,96 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetiMUISVersion">
+      <s:element name="RunTask">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="iMUISVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_input">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ds_output">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetiMUISVersionResponse">
+      <s:element name="RunTaskResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="GetiMUISVersionResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="iMUISVersion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RunTaskResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_output">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunTaskOneWay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_input">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_sessie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Login2Result" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_sessie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -82,8 +190,22 @@
             <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -92,7 +214,14 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="GetStamtabelRecordsResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -103,8 +232,22 @@
             <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -113,7 +256,14 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="GetAdmInfoResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -124,7 +274,14 @@
             <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="tns:ArrayOfString" />
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
@@ -139,9 +296,837 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="CreateJournaalpostResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="tns:ArrayOfString" />
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopOrderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopOfferte">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkoopofferte">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="OFFNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopOfferteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopOfferteResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkoopofferte">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="OFFNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateInkoopOrderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateGoederenontvangst">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Goederenontvangst">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ONTVANGSTNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateGoederenontvangstResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateGoederenontvangstResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Goederenontvangst">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="ONTVANGSTNR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTimeStamp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTimeStampResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTimeStampResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopfactuur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkoopfactuur">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="INKFACTNR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkoopfactuurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateInkoopfactuurResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkoopfactuur">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="INKFACTNR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkooporderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopofferte">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopofferteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopofferteResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteInkooporderResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporderregels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkooporderregels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopofferteRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkoopofferteregels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopofferteRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopofferteRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkoopofferteregels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporderregels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateInkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Inkooporderregels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkoopofferteRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkoopofferteRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkoopofferteRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateInkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderPickbon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkooporderPickbonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkooporderPickbonResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickBonGepakt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickBonGepaktResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderPickBonGepaktResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickbonGereed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkooporderPickbonGereedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderPickbonGereedResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopofferteRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopofferteRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopofferteRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporderRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInkooporderRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteInkooporderRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkoopcontract">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ONDERHCTR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopContractResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Verkoopcontract">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ONDERHCTR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopContractResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerlengVerkoopPeriodeContract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerlengVerkoopPeriodeContractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerlengVerkoopPeriodeContractResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkoopContractRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVerkoopContractRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkoopContractRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContractRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVerkoopContractRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopContractRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContractRegel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContractRegels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVerkoopContractRegelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopContractRegelResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContractRegels">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aActie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds_settings">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateInfoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -151,7 +1136,14 @@
             <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Stamtabel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Stamtabel">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
@@ -173,7 +1165,14 @@
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Primarykey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Journaalpost">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -211,7 +1210,14 @@
             <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -230,7 +1236,14 @@
             <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mutatie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -239,6 +1252,169 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="DeleteStamtabelRecordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aTokenValue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckTokenResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetiMUISVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aiMUISVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetiMUISVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetiMUISVersionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="aiMUISVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLaatsteBoekingPeriode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLaatsteBoekingPeriodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLaatsteBoekingPeriodeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefindQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefindQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPredefindQueryResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefinedQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selectie">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPredefinedQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPredefinedQueryResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Records">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
             <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -253,512 +1429,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="CreateSpitsfactuur">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionIdMWsys" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="SaveOrderMelding" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateSpitsfactuurResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateSpitsfactuurResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="SaveOrderMelding" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkoopOrder">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkoopOrderResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopOrderResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateInkoopOrder">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateInkoopOrderResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateInkoopOrderResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateGoederenontvangst">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Goederenontvangst" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ONTVANGSTNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateGoederenontvangstResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateGoederenontvangstResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Goederenontvangst" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ONTVANGSTNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetTimeStamp">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetTimeStampResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="GetTimeStampResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateInkoopfactuur">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Inkoopfactuur" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="INKFACTNR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateInkoopfactuurResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateInkoopfactuurResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Inkoopfactuur" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="INKFACTNR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkooporder">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkooporderResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkooporderResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteInkooporder">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteInkooporderResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="DeleteInkooporderResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkooporderRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkooporderRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkooporderRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Verkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateInkooporderRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateInkooporderRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateInkooporderRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Inkooporder" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ORDNR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkooporderRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkooporderRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateInkooporderRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateInkooporderRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="UpdateInkooporderRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkooporderPickbon">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkooporderPickbonResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkooporderPickbonResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkooporderPickBonGepakt">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkooporderPickBonGepaktResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderPickBonGepaktResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkooporderPickbonGereed">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkooporderPickbonGereedResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkooporderPickbonGereedResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkooporderRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkooporderRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkooporderRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteInkooporderRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteInkooporderRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="DeleteInkooporderRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkoopContract">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="ONDERHCTR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkoopContractResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopContractResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="ONDERHCTR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkoopContract">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkoopContractResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopContractResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkoopContractRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ONDERHCTR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="CreateVerkoopContractRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CreateVerkoopContractRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Contract" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="ONDERHCTR" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkoopContractRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateVerkoopContractRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="UpdateVerkoopContractRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkoopContractRegel">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mutatie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="DeleteVerkoopContractRegelResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="DeleteVerkoopContractRegelResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetLaatsteBoekingPeriode">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetLaatsteBoekingPeriodeResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="GetLaatsteBoekingPeriodeResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetPredefindQuery">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Omgevingscode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Selectie" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetPredefindQueryResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="GetPredefindQueryResult" type="s:boolean" />
-            <s:element minOccurs="0" maxOccurs="1" name="Records" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Foutmelding" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetURL" />
+  </wsdl:message>
+  <wsdl:message name="GetURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetURLResponse" />
+  </wsdl:message>
   <wsdl:message name="LoginSoapIn">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
   <wsdl:message name="LoginSoapOut">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
-  <wsdl:message name="GetiMUISVersionSoapIn">
-    <wsdl:part name="parameters" element="tns:GetiMUISVersion" />
+  <wsdl:message name="RunTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:RunTask" />
   </wsdl:message>
-  <wsdl:message name="GetiMUISVersionSoapOut">
-    <wsdl:part name="parameters" element="tns:GetiMUISVersionResponse" />
+  <wsdl:message name="RunTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:RunTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunTaskOneWaySoapIn">
+    <wsdl:part name="parameters" element="tns:RunTaskOneWay" />
+  </wsdl:message>
+  <wsdl:message name="Login2SoapIn">
+    <wsdl:part name="parameters" element="tns:Login2" />
+  </wsdl:message>
+  <wsdl:message name="Login2SoapOut">
+    <wsdl:part name="parameters" element="tns:Login2Response" />
   </wsdl:message>
   <wsdl:message name="KeepSessionSoapIn">
     <wsdl:part name="parameters" element="tns:KeepSession" />
@@ -790,53 +1488,17 @@
   <wsdl:message name="CreateJournaalpostSoapOut">
     <wsdl:part name="parameters" element="tns:CreateJournaalpostResponse" />
   </wsdl:message>
-  <wsdl:message name="CreateStamTabelRecordSoapIn">
-    <wsdl:part name="parameters" element="tns:CreateStamTabelRecord" />
-  </wsdl:message>
-  <wsdl:message name="CreateStamTabelRecordSoapOut">
-    <wsdl:part name="parameters" element="tns:CreateStamTabelRecordResponse" />
-  </wsdl:message>
-  <wsdl:message name="UpdateJournaalpostSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateJournaalpost" />
-  </wsdl:message>
-  <wsdl:message name="UpdateJournaalpostSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateJournaalpostResponse" />
-  </wsdl:message>
-  <wsdl:message name="DeleteJournaalpostSoapIn">
-    <wsdl:part name="parameters" element="tns:DeleteJournaalpost" />
-  </wsdl:message>
-  <wsdl:message name="DeleteJournaalpostSoapOut">
-    <wsdl:part name="parameters" element="tns:DeleteJournaalpostResponse" />
-  </wsdl:message>
-  <wsdl:message name="UpdateStamtabelRecordSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateStamtabelRecord" />
-  </wsdl:message>
-  <wsdl:message name="UpdateStamtabelRecordSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateStamtabelRecordResponse" />
-  </wsdl:message>
-  <wsdl:message name="DeleteStamtabelRecordSoapIn">
-    <wsdl:part name="parameters" element="tns:DeleteStamtabelRecord" />
-  </wsdl:message>
-  <wsdl:message name="DeleteStamtabelRecordSoapOut">
-    <wsdl:part name="parameters" element="tns:DeleteStamtabelRecordResponse" />
-  </wsdl:message>
-  <wsdl:message name="CheckConnectionSoapIn">
-    <wsdl:part name="parameters" element="tns:CheckConnection" />
-  </wsdl:message>
-  <wsdl:message name="CheckConnectionSoapOut">
-    <wsdl:part name="parameters" element="tns:CheckConnectionResponse" />
-  </wsdl:message>
-  <wsdl:message name="CreateSpitsfactuurSoapIn">
-    <wsdl:part name="parameters" element="tns:CreateSpitsfactuur" />
-  </wsdl:message>
-  <wsdl:message name="CreateSpitsfactuurSoapOut">
-    <wsdl:part name="parameters" element="tns:CreateSpitsfactuurResponse" />
-  </wsdl:message>
   <wsdl:message name="CreateVerkoopOrderSoapIn">
     <wsdl:part name="parameters" element="tns:CreateVerkoopOrder" />
   </wsdl:message>
   <wsdl:message name="CreateVerkoopOrderSoapOut">
     <wsdl:part name="parameters" element="tns:CreateVerkoopOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopOfferteSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopOfferte" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopOfferteSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopOfferteResponse" />
   </wsdl:message>
   <wsdl:message name="CreateInkoopOrderSoapIn">
     <wsdl:part name="parameters" element="tns:CreateInkoopOrder" />
@@ -868,6 +1530,12 @@
   <wsdl:message name="DeleteVerkooporderSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteVerkooporderResponse" />
   </wsdl:message>
+  <wsdl:message name="DeleteVerkoopofferteSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopofferte" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkoopofferteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopofferteResponse" />
+  </wsdl:message>
   <wsdl:message name="DeleteInkooporderSoapIn">
     <wsdl:part name="parameters" element="tns:DeleteInkooporder" />
   </wsdl:message>
@@ -880,6 +1548,12 @@
   <wsdl:message name="CreateVerkooporderRegelSoapOut">
     <wsdl:part name="parameters" element="tns:CreateVerkooporderRegelResponse" />
   </wsdl:message>
+  <wsdl:message name="CreateVerkoopofferteRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopofferteRegel" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopofferteRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopofferteRegelResponse" />
+  </wsdl:message>
   <wsdl:message name="CreateInkooporderRegelSoapIn">
     <wsdl:part name="parameters" element="tns:CreateInkooporderRegel" />
   </wsdl:message>
@@ -891,6 +1565,12 @@
   </wsdl:message>
   <wsdl:message name="UpdateVerkooporderRegelSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateVerkooporderRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkoopofferteRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVerkoopofferteRegel" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVerkoopofferteRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVerkoopofferteRegelResponse" />
   </wsdl:message>
   <wsdl:message name="UpdateInkooporderRegelSoapIn">
     <wsdl:part name="parameters" element="tns:UpdateInkooporderRegel" />
@@ -922,6 +1602,12 @@
   <wsdl:message name="DeleteVerkooporderRegelSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteVerkooporderRegelResponse" />
   </wsdl:message>
+  <wsdl:message name="DeleteVerkoopofferteRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopofferteRegel" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVerkoopofferteRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVerkoopofferteRegelResponse" />
+  </wsdl:message>
   <wsdl:message name="DeleteInkooporderRegelSoapIn">
     <wsdl:part name="parameters" element="tns:DeleteInkooporderRegel" />
   </wsdl:message>
@@ -940,11 +1626,11 @@
   <wsdl:message name="DeleteVerkoopContractSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteVerkoopContractResponse" />
   </wsdl:message>
-  <wsdl:message name="CreateVerkoopContractRegelSoapIn">
-    <wsdl:part name="parameters" element="tns:CreateVerkoopContractRegel" />
+  <wsdl:message name="VerlengVerkoopPeriodeContractSoapIn">
+    <wsdl:part name="parameters" element="tns:VerlengVerkoopPeriodeContract" />
   </wsdl:message>
-  <wsdl:message name="CreateVerkoopContractRegelSoapOut">
-    <wsdl:part name="parameters" element="tns:CreateVerkoopContractRegelResponse" />
+  <wsdl:message name="VerlengVerkoopPeriodeContractSoapOut">
+    <wsdl:part name="parameters" element="tns:VerlengVerkoopPeriodeContractResponse" />
   </wsdl:message>
   <wsdl:message name="UpdateVerkoopContractRegelSoapIn">
     <wsdl:part name="parameters" element="tns:UpdateVerkoopContractRegel" />
@@ -958,6 +1644,60 @@
   <wsdl:message name="DeleteVerkoopContractRegelSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteVerkoopContractRegelResponse" />
   </wsdl:message>
+  <wsdl:message name="CreateVerkoopContractRegelSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopContractRegel" />
+  </wsdl:message>
+  <wsdl:message name="CreateVerkoopContractRegelSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVerkoopContractRegelResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateStamTabelRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateStamTabelRecord" />
+  </wsdl:message>
+  <wsdl:message name="CreateStamTabelRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateStamTabelRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJournaalpostSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateJournaalpost" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJournaalpostSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateJournaalpostResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJournaalpostSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteJournaalpost" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJournaalpostSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteJournaalpostResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStamtabelRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateStamtabelRecord" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStamtabelRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStamtabelRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteStamtabelRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteStamtabelRecord" />
+  </wsdl:message>
+  <wsdl:message name="DeleteStamtabelRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteStamtabelRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckToken" />
+  </wsdl:message>
+  <wsdl:message name="CheckTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetiMUISVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetiMUISVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetiMUISVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetiMUISVersionResponse" />
+  </wsdl:message>
   <wsdl:message name="GetLaatsteBoekingPeriodeSoapIn">
     <wsdl:part name="parameters" element="tns:GetLaatsteBoekingPeriode" />
   </wsdl:message>
@@ -970,14 +1710,37 @@
   <wsdl:message name="GetPredefindQuerySoapOut">
     <wsdl:part name="parameters" element="tns:GetPredefindQueryResponse" />
   </wsdl:message>
-  <wsdl:portType name="ws1_xmlSoap">
+  <wsdl:message name="GetPredefinedQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPredefinedQuery" />
+  </wsdl:message>
+  <wsdl:message name="GetPredefinedQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPredefinedQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckConnectionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ws1Soap">
+    <wsdl:operation name="GetURL">
+      <wsdl:input message="tns:GetURLSoapIn" />
+      <wsdl:output message="tns:GetURLSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
       <wsdl:output message="tns:LoginSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetiMUISVersion">
-      <wsdl:input message="tns:GetiMUISVersionSoapIn" />
-      <wsdl:output message="tns:GetiMUISVersionSoapOut" />
+    <wsdl:operation name="RunTask">
+      <wsdl:input message="tns:RunTaskSoapIn" />
+      <wsdl:output message="tns:RunTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunTaskOneWay">
+      <wsdl:input message="tns:RunTaskOneWaySoapIn" />
+    </wsdl:operation>
+    <wsdl:operation name="Login2">
+      <wsdl:input message="tns:Login2SoapIn" />
+      <wsdl:output message="tns:Login2SoapOut" />
     </wsdl:operation>
     <wsdl:operation name="KeepSession">
       <wsdl:input message="tns:KeepSessionSoapIn" />
@@ -999,37 +1762,13 @@
       <wsdl:input message="tns:CreateJournaalpostSoapIn" />
       <wsdl:output message="tns:CreateJournaalpostSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="CreateStamTabelRecord">
-      <wsdl:input message="tns:CreateStamTabelRecordSoapIn" />
-      <wsdl:output message="tns:CreateStamTabelRecordSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateJournaalpost">
-      <wsdl:input message="tns:UpdateJournaalpostSoapIn" />
-      <wsdl:output message="tns:UpdateJournaalpostSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteJournaalpost">
-      <wsdl:input message="tns:DeleteJournaalpostSoapIn" />
-      <wsdl:output message="tns:DeleteJournaalpostSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateStamtabelRecord">
-      <wsdl:input message="tns:UpdateStamtabelRecordSoapIn" />
-      <wsdl:output message="tns:UpdateStamtabelRecordSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteStamtabelRecord">
-      <wsdl:input message="tns:DeleteStamtabelRecordSoapIn" />
-      <wsdl:output message="tns:DeleteStamtabelRecordSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckConnection">
-      <wsdl:input message="tns:CheckConnectionSoapIn" />
-      <wsdl:output message="tns:CheckConnectionSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateSpitsfactuur">
-      <wsdl:input message="tns:CreateSpitsfactuurSoapIn" />
-      <wsdl:output message="tns:CreateSpitsfactuurSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="CreateVerkoopOrder">
       <wsdl:input message="tns:CreateVerkoopOrderSoapIn" />
       <wsdl:output message="tns:CreateVerkoopOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopOfferte">
+      <wsdl:input message="tns:CreateVerkoopOfferteSoapIn" />
+      <wsdl:output message="tns:CreateVerkoopOfferteSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CreateInkoopOrder">
       <wsdl:input message="tns:CreateInkoopOrderSoapIn" />
@@ -1051,6 +1790,10 @@
       <wsdl:input message="tns:DeleteVerkooporderSoapIn" />
       <wsdl:output message="tns:DeleteVerkooporderSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopofferte">
+      <wsdl:input message="tns:DeleteVerkoopofferteSoapIn" />
+      <wsdl:output message="tns:DeleteVerkoopofferteSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="DeleteInkooporder">
       <wsdl:input message="tns:DeleteInkooporderSoapIn" />
       <wsdl:output message="tns:DeleteInkooporderSoapOut" />
@@ -1059,6 +1802,10 @@
       <wsdl:input message="tns:CreateVerkooporderRegelSoapIn" />
       <wsdl:output message="tns:CreateVerkooporderRegelSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopofferteRegel">
+      <wsdl:input message="tns:CreateVerkoopofferteRegelSoapIn" />
+      <wsdl:output message="tns:CreateVerkoopofferteRegelSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="CreateInkooporderRegel">
       <wsdl:input message="tns:CreateInkooporderRegelSoapIn" />
       <wsdl:output message="tns:CreateInkooporderRegelSoapOut" />
@@ -1066,6 +1813,10 @@
     <wsdl:operation name="UpdateVerkooporderRegel">
       <wsdl:input message="tns:UpdateVerkooporderRegelSoapIn" />
       <wsdl:output message="tns:UpdateVerkooporderRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkoopofferteRegel">
+      <wsdl:input message="tns:UpdateVerkoopofferteRegelSoapIn" />
+      <wsdl:output message="tns:UpdateVerkoopofferteRegelSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UpdateInkooporderRegel">
       <wsdl:input message="tns:UpdateInkooporderRegelSoapIn" />
@@ -1087,6 +1838,10 @@
       <wsdl:input message="tns:DeleteVerkooporderRegelSoapIn" />
       <wsdl:output message="tns:DeleteVerkooporderRegelSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopofferteRegel">
+      <wsdl:input message="tns:DeleteVerkoopofferteRegelSoapIn" />
+      <wsdl:output message="tns:DeleteVerkoopofferteRegelSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="DeleteInkooporderRegel">
       <wsdl:input message="tns:DeleteInkooporderRegelSoapIn" />
       <wsdl:output message="tns:DeleteInkooporderRegelSoapOut" />
@@ -1099,9 +1854,9 @@
       <wsdl:input message="tns:DeleteVerkoopContractSoapIn" />
       <wsdl:output message="tns:DeleteVerkoopContractSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="CreateVerkoopContractRegel">
-      <wsdl:input message="tns:CreateVerkoopContractRegelSoapIn" />
-      <wsdl:output message="tns:CreateVerkoopContractRegelSoapOut" />
+    <wsdl:operation name="VerlengVerkoopPeriodeContract">
+      <wsdl:input message="tns:VerlengVerkoopPeriodeContractSoapIn" />
+      <wsdl:output message="tns:VerlengVerkoopPeriodeContractSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UpdateVerkoopContractRegel">
       <wsdl:input message="tns:UpdateVerkoopContractRegelSoapIn" />
@@ -1111,6 +1866,42 @@
       <wsdl:input message="tns:DeleteVerkoopContractRegelSoapIn" />
       <wsdl:output message="tns:DeleteVerkoopContractRegelSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContractRegel">
+      <wsdl:input message="tns:CreateVerkoopContractRegelSoapIn" />
+      <wsdl:output message="tns:CreateVerkoopContractRegelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfo">
+      <wsdl:input message="tns:UpdateInfoSoapIn" />
+      <wsdl:output message="tns:UpdateInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStamTabelRecord">
+      <wsdl:input message="tns:CreateStamTabelRecordSoapIn" />
+      <wsdl:output message="tns:CreateStamTabelRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJournaalpost">
+      <wsdl:input message="tns:UpdateJournaalpostSoapIn" />
+      <wsdl:output message="tns:UpdateJournaalpostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJournaalpost">
+      <wsdl:input message="tns:DeleteJournaalpostSoapIn" />
+      <wsdl:output message="tns:DeleteJournaalpostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStamtabelRecord">
+      <wsdl:input message="tns:UpdateStamtabelRecordSoapIn" />
+      <wsdl:output message="tns:UpdateStamtabelRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStamtabelRecord">
+      <wsdl:input message="tns:DeleteStamtabelRecordSoapIn" />
+      <wsdl:output message="tns:DeleteStamtabelRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckToken">
+      <wsdl:input message="tns:CheckTokenSoapIn" />
+      <wsdl:output message="tns:CheckTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetiMUISVersion">
+      <wsdl:input message="tns:GetiMUISVersionSoapIn" />
+      <wsdl:output message="tns:GetiMUISVersionSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetLaatsteBoekingPeriode">
       <wsdl:input message="tns:GetLaatsteBoekingPeriodeSoapIn" />
       <wsdl:output message="tns:GetLaatsteBoekingPeriodeSoapOut" />
@@ -1119,9 +1910,26 @@
       <wsdl:input message="tns:GetPredefindQuerySoapIn" />
       <wsdl:output message="tns:GetPredefindQuerySoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetPredefinedQuery">
+      <wsdl:input message="tns:GetPredefinedQuerySoapIn" />
+      <wsdl:output message="tns:GetPredefinedQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckConnection">
+      <wsdl:input message="tns:CheckConnectionSoapIn" />
+      <wsdl:output message="tns:CheckConnectionSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="ws1_xmlSoap" type="tns:ws1_xmlSoap">
+  <wsdl:binding name="ws1Soap" type="tns:ws1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetURL">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="https://cloudswitch.imuisonline.com/Login" style="document" />
       <wsdl:input>
@@ -1131,8 +1939,23 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetiMUISVersion">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetiMUISVersion" style="document" />
+    <wsdl:operation name="RunTask">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/RunTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunTaskOneWay">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/RunTaskOneWay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Login2">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/Login2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1185,71 +2008,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateStamTabelRecord">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateStamTabelRecord" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateJournaalpost">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateJournaalpost" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteJournaalpost">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteJournaalpost" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateStamtabelRecord">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateStamtabelRecord" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteStamtabelRecord">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteStamtabelRecord" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckConnection">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CheckConnection" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateSpitsfactuur">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateSpitsfactuur" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="CreateVerkoopOrder">
       <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopOfferte">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopOfferte" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1302,6 +2071,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopofferte">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopofferte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeleteInkooporder">
       <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporder" style="document" />
       <wsdl:input>
@@ -1320,6 +2098,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopofferteRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopofferteRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateInkooporderRegel">
       <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkooporderRegel" style="document" />
       <wsdl:input>
@@ -1331,6 +2118,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateVerkooporderRegel">
       <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkoopofferteRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkoopofferteRegel" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1383,6 +2179,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopofferteRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopofferteRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeleteInkooporderRegel">
       <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporderRegel" style="document" />
       <wsdl:input>
@@ -1410,8 +2215,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateVerkoopContractRegel">
-      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContractRegel" style="document" />
+    <wsdl:operation name="VerlengVerkoopPeriodeContract">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/VerlengVerkoopPeriodeContract" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1437,6 +2242,87 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContractRegel">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfo">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStamTabelRecord">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CreateStamTabelRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJournaalpost">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateJournaalpost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJournaalpost">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteJournaalpost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStamtabelRecord">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/UpdateStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStamtabelRecord">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/DeleteStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckToken">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CheckToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetiMUISVersion">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetiMUISVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetLaatsteBoekingPeriode">
       <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetLaatsteBoekingPeriode" style="document" />
       <wsdl:input>
@@ -1455,9 +2341,36 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPredefinedQuery">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/GetPredefinedQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckConnection">
+      <soap:operation soapAction="https://cloudswitch.imuisonline.com/CheckConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="ws1_xmlSoap12" type="tns:ws1_xmlSoap">
+  <wsdl:binding name="ws1Soap12" type="tns:ws1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetURL">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="https://cloudswitch.imuisonline.com/Login" style="document" />
       <wsdl:input>
@@ -1467,8 +2380,23 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetiMUISVersion">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetiMUISVersion" style="document" />
+    <wsdl:operation name="RunTask">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/RunTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunTaskOneWay">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/RunTaskOneWay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Login2">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/Login2" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1521,71 +2449,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateStamTabelRecord">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateStamTabelRecord" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateJournaalpost">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateJournaalpost" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteJournaalpost">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteJournaalpost" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateStamtabelRecord">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateStamtabelRecord" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteStamtabelRecord">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteStamtabelRecord" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckConnection">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CheckConnection" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateSpitsfactuur">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateSpitsfactuur" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="CreateVerkoopOrder">
       <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopOfferte">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopOfferte" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1638,6 +2512,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopofferte">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopofferte" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeleteInkooporder">
       <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporder" style="document" />
       <wsdl:input>
@@ -1656,6 +2539,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopofferteRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopofferteRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateInkooporderRegel">
       <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateInkooporderRegel" style="document" />
       <wsdl:input>
@@ -1667,6 +2559,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateVerkooporderRegel">
       <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkooporderRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVerkoopofferteRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateVerkoopofferteRegel" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1719,6 +2620,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteVerkoopofferteRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteVerkoopofferteRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeleteInkooporderRegel">
       <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteInkooporderRegel" style="document" />
       <wsdl:input>
@@ -1746,8 +2656,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreateVerkoopContractRegel">
-      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContractRegel" style="document" />
+    <wsdl:operation name="VerlengVerkoopPeriodeContract">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/VerlengVerkoopPeriodeContract" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1773,6 +2683,87 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateVerkoopContractRegel">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateVerkoopContractRegel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfo">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStamTabelRecord">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CreateStamTabelRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJournaalpost">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateJournaalpost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJournaalpost">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteJournaalpost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStamtabelRecord">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/UpdateStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStamtabelRecord">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/DeleteStamtabelRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckToken">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CheckToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetiMUISVersion">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetiMUISVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetLaatsteBoekingPeriode">
       <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetLaatsteBoekingPeriode" style="document" />
       <wsdl:input>
@@ -1791,13 +2782,31 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPredefinedQuery">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/GetPredefinedQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckConnection">
+      <soap12:operation soapAction="https://cloudswitch.imuisonline.com/CheckConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="ws1_xml">
-    <wsdl:port name="ws1_xmlSoap" binding="tns:ws1_xmlSoap">
-      <soap:address location="https://cloudswitch.imuisonline.com/ws1_xml.asmx" />
+  <wsdl:service name="ws1">
+    <wsdl:port name="ws1Soap" binding="tns:ws1Soap">
+      <soap:address location="https://api.kingfinance.nl/v1/ws1.asmx" />
     </wsdl:port>
-    <wsdl:port name="ws1_xmlSoap12" binding="tns:ws1_xmlSoap12">
-      <soap12:address location="https://cloudswitch.imuisonline.com/ws1_xml.asmx" />
+    <wsdl:port name="ws1Soap12" binding="tns:ws1Soap12">
+      <soap12:address location="https://api.kingfinance.nl/v1/ws1.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

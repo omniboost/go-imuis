@@ -166,7 +166,7 @@ func TestCreateJournaalpost(t *testing.T) {
 	// </BOE>
 	// </NewDataSet>`
 	journaalpost := imuis.Journaalpost{
-		BEDRBOEK: 100.0,
+		BEDRBOEK: "100.0",
 		BOEKSTUK: "TEST123",
 		DAGB:     "10",
 		DAT:      "27-10-2018",
@@ -175,7 +175,7 @@ func TestCreateJournaalpost(t *testing.T) {
 		PN:       "10",
 		OPM:      "OPMERKING",
 		BTW:      "12",
-		BEDRBTW:  -21,
+		BEDRBTW:  "-21",
 		TEGREK:   "8000",
 		REK:      "10000",
 	}

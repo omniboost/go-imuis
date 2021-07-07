@@ -432,7 +432,7 @@ func NewClient(h *http.Client) Client {
 	}
 
 	cli := &soap.Client{
-		URL:         "https://cloudswitch.imuisonline.com/ws1_xml.asmx",
+		URL:         "https://api.kingfinance.nl/v1/ws1_xml.asmx",
 		Namespace:   Namespace,
 		Config:      h,
 		ContentType: "text/xml; charset=utf-8; action=\"%s\"",

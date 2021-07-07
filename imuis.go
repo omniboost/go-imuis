@@ -1232,7 +1232,7 @@ func (p *ws1_xmlSoap) CheckConnection(CheckConnection *CheckConnection) (*CheckC
 	γ := struct {
 		OperationCheckConnectionSoapOut `xml:"CheckConnectionResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CheckConnection", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CheckConnection", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CheckConnectionResponse, nil
@@ -1251,7 +1251,7 @@ func (p *ws1_xmlSoap) CreateGoederenontvangst(CreateGoederenontvangst *CreateGoe
 	γ := struct {
 		OperationCreateGoederenontvangstSoapOut `xml:"CreateGoederenontvangstResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateGoederenontvangst", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateGoederenontvangst", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateGoederenontvangstResponse, nil
@@ -1270,7 +1270,7 @@ func (p *ws1_xmlSoap) CreateInkoopOrder(CreateInkoopOrder *CreateInkoopOrder) (*
 	γ := struct {
 		OperationCreateInkoopOrderSoapOut `xml:"CreateInkoopOrderResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateInkoopOrder", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateInkoopOrder", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateInkoopOrderResponse, nil
@@ -1289,7 +1289,7 @@ func (p *ws1_xmlSoap) CreateInkoopfactuur(CreateInkoopfactuur *CreateInkoopfactu
 	γ := struct {
 		OperationCreateInkoopfactuurSoapOut `xml:"CreateInkoopfactuurResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateInkoopfactuur", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateInkoopfactuur", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateInkoopfactuurResponse, nil
@@ -1308,7 +1308,7 @@ func (p *ws1_xmlSoap) CreateInkooporderRegel(CreateInkooporderRegel *CreateInkoo
 	γ := struct {
 		OperationCreateInkooporderRegelSoapOut `xml:"CreateInkooporderRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateInkooporderRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateInkooporderRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateInkooporderRegelResponse, nil
@@ -1327,7 +1327,7 @@ func (p *ws1_xmlSoap) CreateJournaalpost(CreateJournaalpost *CreateJournaalpost)
 	γ := struct {
 		OperationCreateJournaalpostSoapOut `xml:"CreateJournaalpostResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateJournaalpost", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateJournaalpost", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateJournaalpostResponse, nil
@@ -1346,7 +1346,7 @@ func (p *ws1_xmlSoap) CreateSpitsfactuur(CreateSpitsfactuur *CreateSpitsfactuur)
 	γ := struct {
 		OperationCreateSpitsfactuurSoapOut `xml:"CreateSpitsfactuurResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateSpitsfactuur", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateSpitsfactuur", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateSpitsfactuurResponse, nil
@@ -1365,7 +1365,7 @@ func (p *ws1_xmlSoap) CreateStamTabelRecord(CreateStamTabelRecord *CreateStamTab
 	γ := struct {
 		OperationCreateStamTabelRecordSoapOut `xml:"CreateStamTabelRecordResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateStamTabelRecord", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateStamTabelRecord", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateStamTabelRecordResponse, nil
@@ -1384,7 +1384,7 @@ func (p *ws1_xmlSoap) CreateVerkoopContract(CreateVerkoopContract *CreateVerkoop
 	γ := struct {
 		OperationCreateVerkoopContractSoapOut `xml:"CreateVerkoopContractResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateVerkoopContract", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateVerkoopContract", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateVerkoopContractResponse, nil
@@ -1403,7 +1403,7 @@ func (p *ws1_xmlSoap) CreateVerkoopContractRegel(CreateVerkoopContractRegel *Cre
 	γ := struct {
 		OperationCreateVerkoopContractRegelSoapOut `xml:"CreateVerkoopContractRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateVerkoopContractRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateVerkoopContractRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateVerkoopContractRegelResponse, nil
@@ -1422,7 +1422,7 @@ func (p *ws1_xmlSoap) CreateVerkoopOrder(CreateVerkoopOrder *CreateVerkoopOrder)
 	γ := struct {
 		OperationCreateVerkoopOrderSoapOut `xml:"CreateVerkoopOrderResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateVerkoopOrder", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateVerkoopOrder", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateVerkoopOrderResponse, nil
@@ -1441,7 +1441,7 @@ func (p *ws1_xmlSoap) CreateVerkooporderPickbon(CreateVerkooporderPickbon *Creat
 	γ := struct {
 		OperationCreateVerkooporderPickbonSoapOut `xml:"CreateVerkooporderPickbonResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateVerkooporderPickbon", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateVerkooporderPickbon", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateVerkooporderPickbonResponse, nil
@@ -1460,7 +1460,7 @@ func (p *ws1_xmlSoap) CreateVerkooporderRegel(CreateVerkooporderRegel *CreateVer
 	γ := struct {
 		OperationCreateVerkooporderRegelSoapOut `xml:"CreateVerkooporderRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/CreateVerkooporderRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/CreateVerkooporderRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.CreateVerkooporderRegelResponse, nil
@@ -1479,7 +1479,7 @@ func (p *ws1_xmlSoap) DeleteInkooporder(DeleteInkooporder *DeleteInkooporder) (*
 	γ := struct {
 		OperationDeleteInkooporderSoapOut `xml:"DeleteInkooporderResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteInkooporder", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteInkooporder", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteInkooporderResponse, nil
@@ -1498,7 +1498,7 @@ func (p *ws1_xmlSoap) DeleteInkooporderRegel(DeleteInkooporderRegel *DeleteInkoo
 	γ := struct {
 		OperationDeleteInkooporderRegelSoapOut `xml:"DeleteInkooporderRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteInkooporderRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteInkooporderRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteInkooporderRegelResponse, nil
@@ -1517,7 +1517,7 @@ func (p *ws1_xmlSoap) DeleteJournaalpost(DeleteJournaalpost *DeleteJournaalpost)
 	γ := struct {
 		OperationDeleteJournaalpostSoapOut `xml:"DeleteJournaalpostResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteJournaalpost", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteJournaalpost", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteJournaalpostResponse, nil
@@ -1536,7 +1536,7 @@ func (p *ws1_xmlSoap) DeleteStamtabelRecord(DeleteStamtabelRecord *DeleteStamtab
 	γ := struct {
 		OperationDeleteStamtabelRecordSoapOut `xml:"DeleteStamtabelRecordResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteStamtabelRecord", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteStamtabelRecord", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteStamtabelRecordResponse, nil
@@ -1555,7 +1555,7 @@ func (p *ws1_xmlSoap) DeleteVerkoopContract(DeleteVerkoopContract *DeleteVerkoop
 	γ := struct {
 		OperationDeleteVerkoopContractSoapOut `xml:"DeleteVerkoopContractResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteVerkoopContract", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteVerkoopContract", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteVerkoopContractResponse, nil
@@ -1574,7 +1574,7 @@ func (p *ws1_xmlSoap) DeleteVerkoopContractRegel(DeleteVerkoopContractRegel *Del
 	γ := struct {
 		OperationDeleteVerkoopContractRegelSoapOut `xml:"DeleteVerkoopContractRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteVerkoopContractRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteVerkoopContractRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteVerkoopContractRegelResponse, nil
@@ -1593,7 +1593,7 @@ func (p *ws1_xmlSoap) DeleteVerkooporder(DeleteVerkooporder *DeleteVerkooporder)
 	γ := struct {
 		OperationDeleteVerkooporderSoapOut `xml:"DeleteVerkooporderResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteVerkooporder", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteVerkooporder", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteVerkooporderResponse, nil
@@ -1612,7 +1612,7 @@ func (p *ws1_xmlSoap) DeleteVerkooporderRegel(DeleteVerkooporderRegel *DeleteVer
 	γ := struct {
 		OperationDeleteVerkooporderRegelSoapOut `xml:"DeleteVerkooporderRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/DeleteVerkooporderRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/DeleteVerkooporderRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.DeleteVerkooporderRegelResponse, nil
@@ -1631,7 +1631,7 @@ func (p *ws1_xmlSoap) GetAdmInfo(GetAdmInfo *GetAdmInfo) (*GetAdmInfoResponse, e
 	γ := struct {
 		OperationGetAdmInfoSoapOut `xml:"GetAdmInfoResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/GetAdmInfo", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/GetAdmInfo", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.GetAdmInfoResponse, nil
@@ -1650,7 +1650,7 @@ func (p *ws1_xmlSoap) GetLaatsteBoekingPeriode(GetLaatsteBoekingPeriode *GetLaat
 	γ := struct {
 		OperationGetLaatsteBoekingPeriodeSoapOut `xml:"GetLaatsteBoekingPeriodeResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/GetLaatsteBoekingPeriode", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/GetLaatsteBoekingPeriode", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.GetLaatsteBoekingPeriodeResponse, nil
@@ -1669,7 +1669,7 @@ func (p *ws1_xmlSoap) GetPredefindQuery(GetPredefindQuery *GetPredefindQuery) (*
 	γ := struct {
 		OperationGetPredefindQuerySoapOut `xml:"GetPredefindQueryResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/GetPredefindQuery", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/GetPredefindQuery", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.GetPredefindQueryResponse, nil
@@ -1696,7 +1696,7 @@ func (p *ws1_xmlSoap) GetStamtabelRecords(GetStamtabelRecords *GetStamtabelRecor
 		},
 	}
 	// log.Fatal(reflect.TypeOf(γ.GetStamtabelRecordsResponse.Records))
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/GetStamtabelRecords", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/GetStamtabelRecords", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.GetStamtabelRecordsResponse, nil
@@ -1715,7 +1715,7 @@ func (p *ws1_xmlSoap) GetTimeStamp(GetTimeStamp *GetTimeStamp) (*GetTimeStampRes
 	γ := struct {
 		OperationGetTimeStampSoapOut `xml:"GetTimeStampResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/GetTimeStamp", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/GetTimeStamp", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.GetTimeStampResponse, nil
@@ -1734,7 +1734,7 @@ func (p *ws1_xmlSoap) GetiMUISVersion(GetiMUISVersion *GetiMUISVersion) (*GetiMU
 	γ := struct {
 		OperationGetiMUISVersionSoapOut `xml:"GetiMUISVersionResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/GetiMUISVersion", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/GetiMUISVersion", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.GetiMUISVersionResponse, nil
@@ -1753,7 +1753,7 @@ func (p *ws1_xmlSoap) KeepSession(KeepSession *KeepSession) (*KeepSessionRespons
 	γ := struct {
 		OperationKeepSessionSoapOut `xml:"KeepSessionResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/KeepSession", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/KeepSession", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.KeepSessionResponse, nil
@@ -1772,7 +1772,7 @@ func (p *ws1_xmlSoap) Login(Login *Login) (*LoginResponse, error) {
 	γ := struct {
 		OperationLoginSoapOut `xml:"LoginResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/Login", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/Login", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.LoginResponse, nil
@@ -1791,7 +1791,7 @@ func (p *ws1_xmlSoap) Logout(Logout *Logout) (*LogoutResponse, error) {
 	γ := struct {
 		OperationLogoutSoapOut `xml:"LogoutResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/Logout", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/Logout", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.LogoutResponse, nil
@@ -1810,7 +1810,7 @@ func (p *ws1_xmlSoap) UpdateInkooporderRegel(UpdateInkooporderRegel *UpdateInkoo
 	γ := struct {
 		OperationUpdateInkooporderRegelSoapOut `xml:"UpdateInkooporderRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/UpdateInkooporderRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/UpdateInkooporderRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.UpdateInkooporderRegelResponse, nil
@@ -1829,7 +1829,7 @@ func (p *ws1_xmlSoap) UpdateJournaalpost(UpdateJournaalpost *UpdateJournaalpost)
 	γ := struct {
 		OperationUpdateJournaalpostSoapOut `xml:"UpdateJournaalpostResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/UpdateJournaalpost", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/UpdateJournaalpost", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.UpdateJournaalpostResponse, nil
@@ -1848,7 +1848,7 @@ func (p *ws1_xmlSoap) UpdateStamtabelRecord(UpdateStamtabelRecord *UpdateStamtab
 	γ := struct {
 		OperationUpdateStamtabelRecordSoapOut `xml:"UpdateStamtabelRecordResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/UpdateStamtabelRecord", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/UpdateStamtabelRecord", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.UpdateStamtabelRecordResponse, nil
@@ -1867,7 +1867,7 @@ func (p *ws1_xmlSoap) UpdateVerkoopContractRegel(UpdateVerkoopContractRegel *Upd
 	γ := struct {
 		OperationUpdateVerkoopContractRegelSoapOut `xml:"UpdateVerkoopContractRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/UpdateVerkoopContractRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/UpdateVerkoopContractRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.UpdateVerkoopContractRegelResponse, nil
@@ -1886,7 +1886,7 @@ func (p *ws1_xmlSoap) UpdateVerkooporderPickBonGepakt(UpdateVerkooporderPickBonG
 	γ := struct {
 		OperationUpdateVerkooporderPickBonGepaktSoapOut `xml:"UpdateVerkooporderPickBonGepaktResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/UpdateVerkooporderPickBonGepakt", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/UpdateVerkooporderPickBonGepakt", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.UpdateVerkooporderPickBonGepaktResponse, nil
@@ -1905,7 +1905,7 @@ func (p *ws1_xmlSoap) UpdateVerkooporderPickbonGereed(UpdateVerkooporderPickbonG
 	γ := struct {
 		OperationUpdateVerkooporderPickbonGereedSoapOut `xml:"UpdateVerkooporderPickbonGereedResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/UpdateVerkooporderPickbonGereed", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/UpdateVerkooporderPickbonGereed", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.UpdateVerkooporderPickbonGereedResponse, nil
@@ -1924,7 +1924,7 @@ func (p *ws1_xmlSoap) UpdateVerkooporderRegel(UpdateVerkooporderRegel *UpdateVer
 	γ := struct {
 		OperationUpdateVerkooporderRegelSoapOut `xml:"UpdateVerkooporderRegelResponse"`
 	}{}
-	if err := p.cli.RoundTripSoap12("https://cloudswitch.imuisonline.com/UpdateVerkooporderRegel", α, &γ); err != nil {
+	if err := p.cli.RoundTripSoap12("https://api.kingfinance.nl/v1/UpdateVerkooporderRegel", α, &γ); err != nil {
 		return nil, err
 	}
 	return γ.UpdateVerkooporderRegelResponse, nil
