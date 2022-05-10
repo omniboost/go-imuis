@@ -396,7 +396,7 @@ type Journaalpost struct {
 	// Dossier, datatype: CHAR, lengte: 20
 	DOSSIER string `xml:",omitempty"`
 
-	BOE_WARNING string
+	BOE_WARNING string `xml:",omitempty"`
 }
 
 type GetStamtabelRecordsResponseRecords struct {
